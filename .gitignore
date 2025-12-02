@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json # If you commit package.json and run npm install in CI/CD
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Log files
+*.log
+logs/
+*.log.*.[0-9]
+*.log.[0-9]
+
+# Coverage directory
+coverage/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

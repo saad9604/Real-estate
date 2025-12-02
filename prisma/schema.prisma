@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  email       String   @unique @db.VarChar(255)
+  phoneNumber String   @db.VarChar(50)
+  password    String   @db.VarChar(255)
+  createdAt   DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("users")
+}
+
+model Property {
+  id                  Int      @id @default(autoincrement())
+  title               String   @db.VarChar(255)
+  description         String?  @db.Text
+  propertyDescription String?  @db.Text
+  address             String   @db.VarChar(500)
+  city                String   @db.VarChar(100)
+  state               String   @db.VarChar(100)
+  country             String   @db.VarChar(100)
+  zipCode             String   @db.VarChar(20)
+  price               Decimal  @db.Decimal(15, 2)
+  size                Int
+  bedrooms            Int
+  bathrooms           Int
+  kitchens            Int
+  garages             Int
+  garageSize          Int?
+  floorsNo            Int
+  yearBuilt           Int?
+  category            String   @db.VarChar(100)
+  listedIn            String   @db.VarChar(100)
+  amenities           Json?    @db.Json
+  images              Json?    @db.Json
+  mapLocation         String?  @db.VarChar(500)
+  createdAt           DateTime @default(now()) @db.Timestamp(6)
+  updatedAt           DateTime @updatedAt @db.Timestamp(6)
+
+  @@map("properties")
+}
+
+model Enquiry {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  email       String   @db.VarChar(255)
+  phoneNumber String   @db.VarChar(50)
+  message     String   @db.Text
+  propertyId  Int?
+  createdAt   DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("enquiries")
+}
