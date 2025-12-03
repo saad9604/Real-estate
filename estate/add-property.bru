@@ -6,8 +6,46 @@ meta {
 
 post {
   url: http://localhost:3001/prisma/api/properties
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "title": "Modern Luxury Villa",
+    "description": "A stunning modern villa with breathtaking views",
+    "propertyDescription": "This beautiful 3-story villa features contemporary design with premium finishes. Located in a prime residential area, it offers spacious living areas, high-end kitchen appliances, and a private garden.",
+    "address": "123 Luxury Lane",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "zipCode": "90001",
+    "price": 1250000.00,
+    "size": 3500,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "kitchens": 1,
+    "garages": 2,
+    "garageSize": 500,
+    "floorsNo": 3,
+    "yearBuilt": 2020,
+    "category": "Villa",
+    "listedIn": "Sale",
+    "amenities": [
+      "Swimming Pool",
+      "Gym",
+      "Garden",
+      "Parking",
+      "Security System",
+      "Air Conditioning"
+    ],
+    "images": [
+      "https://example.com/image1.jpg",
+      "https://example.com/image2.jpg",
+      "https://example.com/image3.jpg"
+    ],
+    "mapLocation": "https://maps.google.com/?q=123+Luxury+Lane+Los+Angeles"
+  }
 }
 
 settings {

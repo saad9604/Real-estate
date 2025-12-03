@@ -4,10 +4,17 @@ meta {
   seq: 2
 }
 
-get {
+post {
   url: http://localhost:3001/prisma/api/login
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "email":"sayyedsaad9604@gmail.com",
+    "password":"Saad@123"
+  }
 }
 
 settings {

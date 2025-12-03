@@ -1,5 +1,6 @@
 const { propertyService, enquiryService, adminService } = require('../services/prismaService');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // Property-related controllers
 exports.createProperty = async (req, res) => {
@@ -158,9 +159,20 @@ exports.loginAdmin = async (req, res) => {
                 // Remove password from response
                 const { password: _, ...adminWithoutPassword } = loggedInAdmin;
 
+                // Generate JWT token
+                const token = jwt.sign(
+                    {
+                        id: loggedInAdmin.id,
+                        email: loggedInAdmin.email
+                    },
+                    process.env.JWT_SECRET,
+                    { expiresIn: '24h' }
+                );
+
                 res.json({
                     message: 'Login successful',
                     admin: adminWithoutPassword,
+                    token: token,
                     loginSuccessful: true
                 });
             } else {

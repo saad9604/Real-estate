@@ -5,9 +5,18 @@ meta {
 }
 
 post {
-  url: https://github.com/saad9604/Real-estate
-  body: none
+  url: http://localhost:3001/prisma/api/enquiries
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@example.com",
+    "phoneNumber": "555-987-6543",
+    "message": "Hello, I'm looking for a 3-bedroom house in the downtown area. Do you have any properties available?"
+  }
 }
 
 settings {

@@ -5,9 +5,18 @@ meta {
 }
 
 post {
-  url: http://localhost:3001/api/signup
-  body: none
+  url: http://localhost:3001/prisma/api/signup
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "name":"saad",
+    "email":"sayyedsaad9604@gmail.com",
+    "phoneNumber":"8208495516",
+    "password":"Saad@123"
+  }
 }
 
 settings {
